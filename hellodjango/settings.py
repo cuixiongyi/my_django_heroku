@@ -37,6 +37,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'polls'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -77,7 +78,7 @@ WSGI_APPLICATION = 'hellodjango.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': 'mydatabase',
     }
 }
 
@@ -104,6 +105,7 @@ STATIC_URL = '/static/'
 # Parse database configuration from $DATABASE_URL
 import dj_database_url
 DATABASES['default'] =  dj_database_url.config()
+DATABASES['default'] =  dj_database_url.config(default='postgres://yxkfykjtrfeuyk:jViH52zFloqlGdbeZ0ztrvcZ6n@ec2-54-235-162-144.compute-1.amazonaws.com:5432/derh9oveeptk3h')
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
